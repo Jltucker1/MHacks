@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="sTK7FBQPHx0"> 
+</script>
+</head>
+
+<title>Uploaded!</title>
+{% if filename %}
+  <div id="container" src="{{filename}}"></div>
+{% else %}
+  <h1>no image for whatever reason</h1>
+{% endif %}
+
+<body>
+<script type="text/javascript">
+console.log('inside');
+var options = {
+    binder_id: 'BhsT7RE7i0aJYacX8Svwaf1',
+    iframe: true,
+    tagid4iframe: "container",
+    iframewidth: "1020px",
+    iframeheight: "650px",
+    start_annotate: function(event) {
+    	alert("Annotate start: session key: " + event.session_key +
+    	" session id: " + event.session_id +
+    	" binder id: " + event.binder_id);
+    },
+    stop_annotate: function(event) {
+    	alert("Annotate stop: download URL: " + event.download_url +
+    	" share URL: " + event.share_url +
+    	" binder id: " + event.binder_id);
+    },
+    error: function(event) {
+        alert("Annotate error code: " + event.error_code + " error message: " + event.error_message);
+    }
+};
+console.log('declared');
+Moxtra.annotate(options);
+console.log('annotate');
+</script>
+</body>
