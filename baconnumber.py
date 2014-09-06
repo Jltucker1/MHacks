@@ -20,7 +20,6 @@ def upload_file():
             #files = {'file': open(file.filename, 'r')}
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
             r = requests.post("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload", data=file.filename)
-            print r.text
             return redirect(url_for('uploaded_file', filename=file.filename))
     return '''
     <!doctype html>
