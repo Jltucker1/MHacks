@@ -14,7 +14,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def hmac_sha256(key, msg):
     hash_obj = hmac.new(key=key, msg=msg, digestmod=hashlib.sha256)
-    return hash_obj
+    return hash_obj.hexdigest()
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -30,6 +30,7 @@ def upload_file():
     hash=hmac_sha256(client_secret, client_id+unique_id+str(timestamp))
     signature=base64.urlsafe_b64encode(str(hash))
     
+    global access_token
     access_token = requests.post("https://api.moxtra.com/oauth/token"+
     "client_id=client_id&"+
     "client_secret=client_secret&"+
@@ -46,8 +47,8 @@ def upload_file():
     return render_template('first.html')
 
 @app.route('/show/<filename>')
-def uploaded_file(filename, access_token='None'):
-    r = requests.post("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload?access_token=access_token", data=filename)
+def uploaded_file(filename):
+    r = requests.post("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload?access_token=" + str(access_token), data=filename)
     filename = 'http://127.0.0.1:5000/uploads/' + filename
     return render_template('template.html', filename=filename)
 
@@ -57,9 +58,11 @@ def send_file(filename):
 
 @app.route('/view')
 def view_gallery():
-    r = requests.get("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1")
-    pages = r.data.pages
-    return render_template('index.html', pages = pages)
+    #r = requests.get("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload?access_token")
+    r = requests.get("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/downloadpdf?access_token=access_token")
+    #pages = r["data"]
+    #page_num = pages["total_pages"]
+    return render_template('index.html', pages = 40)
 
 if __name__ == '__main__':
     app.run(debug=True)
