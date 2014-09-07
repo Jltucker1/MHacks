@@ -71,15 +71,19 @@ var options = {
 };
 console.log('declared');
 get_token();
+document.getElementById('access_token').value = divElement()
+function GetDivElement() {
+    return divElement();
 alert(access_token);
-//Moxtra.annotate(options);
-//console.log('annotate');
+
 </script>
+
 
 <h1>Upload new File</h1>
     <form action="" method=post enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
-         <input type=hidden name=token value=>
+         <script type="text/javascript">document.write('<input type=hidden name=token value='+access_token+'/>');
+        </script>
     </form>
 </body>

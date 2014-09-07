@@ -56,7 +56,6 @@
 
 
 <script type="text/javascript">
-console.log('inside');
 var options = {
     binder_id: 'BhsT7RE7i0aJYacX8Svwaf1',
     iframe: true,
@@ -77,10 +76,6 @@ var options = {
         alert("Annotate error code: " + event.error_code + " error message: " + event.error_message);
     }
 };
-console.log('declared');
-get_token();
-alert(access_token);
 Moxtra.annotate(options);
-console.log('annotate');
 </script>
 </body>
