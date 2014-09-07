@@ -3,7 +3,6 @@ import time
 from flask import Flask, request, redirect, url_for, send_from_directory, render_template
 import requests
 import hmac
-import HMAC
 import hashlib
 import base64
 
