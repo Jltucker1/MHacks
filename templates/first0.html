@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lan="en">
+<head>
+
+<title>Scrapbook</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <href="style0.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style00.css" />
+    
+    </style>
+    <div class="maintitle"><h1>Title Here</h1></div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//www.moxtra.com/api/js/jquery-1.8.1.min.js"></script>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="hhmXl0qEFxM"> 
+</script>
+
+
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+
+<script type="text/javascript">// <![CDATA[
+    var client_id = "hhmXl0qEFxM";
+    var client_secret = "hQbxcqM20TQ";
+    var timestamp = new Date().getTime();
+    var uniqueid = "user-unique-identity";
+    var access_token = "";
+
+    var hash = CryptoJS.HmacSHA256(client_id + uniqueid + timestamp, client_secret);
+    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+    var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
+// ]]></script>
+
+
+<script type="text/javascript">
+ function get_token() {
+    var in_options = {
+        uniqueid: uniqueid,
+        timestamp: timestamp,
+        signature: signature,
+        get_accesstoken: function(result) {
+            alert("access_token: " + result.access_token + " expires in: " + result.expires_in);
+            access_token = result.access_token;
+        },
+        error: function(result) {
+            alert("error code: " + result.error_code + " message: " + result.error_message);
+        }
+    };
+    Moxtra.setup(in_options);
+}
+</script>
+
+</head>
+
+<body>
+
+
+    <p1 class="thebutton">
+    <!--<span class="h2">Upload a Photo</span>-->
+    <h0 >Upload a Photo!</h2>
+    <SPAN style= "position: relative">
+        <form action="" method=post enctype=multipart/form-data>
+            <p class="thebutton"><input type=file name=file>
+                <input type=submit value=Upload>
+                <input type=hidden name=token value=>
+        </form>
+    </p1>
+
+
+    <p2>
+    <img src="mhpic1.jpg" class="rotate15">
+    </p2>
+
+    <p3>
+    <img src="mhpic2.jpg"  class="rotateneg15">
+    </p3>
+
+    <p4>
+    <img src="mhpic3.jpg"  class="rotateneg15">
+    </p4>
+
+    <p5>
+    <img src="mhpic4.jpg" class="rotate15">
+    </p5>
+
+<script type="text/javascript">
+console.log('inside');
+var options = {
+    binder_id: 'BhsT7RE7i0aJYacX8Svwaf1',
+    iframe: true,
+    tagid4iframe: "container",
+    iframewidth: "1020px",
+    iframeheight: "650px",
+    start_annotate: function(event) {
+    	alert("Annotate start: session key: " + event.session_key +
+    	" session id: " + event.session_id +
+    	" binder id: " + event.binder_id);
+    },
+    stop_annotate: function(event) {
+    	alert("Annotate stop: download URL: " + event.download_url +
+    	" share URL: " + event.share_url +
+    	" binder id: " + event.binder_id);
+    },
+    error: function(event) {
+        alert("Annotate error code: " + event.error_code + " error message: " + event.error_message);
+    }
+};
+console.log('declared');
+get_token();
+alert(access_token);
+//Moxtra.annotate(options);
+//console.log('annotate');
+</script>
+
+
+</body>
