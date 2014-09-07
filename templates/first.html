@@ -31,6 +31,7 @@
         signature: signature,
         get_accesstoken: function(result) {
             alert("access_token: " + result.access_token + " expires in: " + result.expires_in);
+            console.log(result.access_token);
             access_token = result.access_token;
         },
         error: function(result) {
@@ -44,11 +45,7 @@
 </head>
 
 <body>
-
-
-
 <script type="text/javascript">
-console.log('inside');
 var options = {
     binder_id: 'BhsT7RE7i0aJYacX8Svwaf1',
     iframe: true,
@@ -69,12 +66,7 @@ var options = {
         alert("Annotate error code: " + event.error_code + " error message: " + event.error_message);
     }
 };
-console.log('declared');
 get_token();
-document.getElementById('access_token').value = divElement()
-function GetDivElement() {
-    return divElement();
-alert(access_token);
 
 </script>
 
@@ -87,3 +79,4 @@ alert(access_token);
         </script>
     </form>
 </body>
+</html>
