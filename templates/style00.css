@@ -1,0 +1,97 @@
+head {
+	color: black;
+	text-decoration: bold;
+	font: 60px "Garamond", sans-serif;
+	font-weight:lighter;
+	
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h2 {
+	color: black;
+	font: 40px "Garamond";
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.thebutton{
+	color: black;
+	font: 30px "Garamond";
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rotate15{
+	-wekit-transform: rotate(15deg);
+	-moz-transform: rotate(15deg); /* IE 9 */
+	-webkit-transform: rotate(15deg); /* Chrome, Safari, Opera */
+	transform: rotate(15deg);
+}
+
+.rotate7{
+	-wekit-transform: rotate(7deg);
+	-moz-transform: rotate(7deg); /* IE 9 */
+	-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+	transform: rotate(7deg);
+}
+
+.rotateneg15{
+	-wekit-transform: rotate(-15deg);
+	-moz-transform: rotate(-15deg); /* IE 9 */
+	-webkit-transform: rotate(-15deg); /* Chrome, Safari, Opera */
+	transform: rotate(-15deg);
+}
+
+p2{
+	position: absolute;
+	top: 100px; 
+	left: 50px;
+}
+p3{
+	position: absolute;
+	bottom: 40px; 
+	left: 200px;
+}
+p4{
+	position: absolute;
+	top: 100px; 
+	right: 50px;
+}
+
+p5{
+	position: absolute;
+	bottom: 40px; 
+	right: 200px;
+}
+
+
+
+body{
+	background-size: 100% 100%;
+	background-position:relative;
+	background-repeat: no-repeat;
+  	background: 
+  		repeating-linear-gradient(
+  			45deg,
+	    	transparent,
+		    transparent 10px,
+		    deepskyblue 10px,
+		    deepskyblue 20px
+	  	),
+	  	/* on "bottom" */
+	  	linear-gradient(
+		    to bottom,
+		    deepskyblue,
+		    tomato
+	  	);	
+	margin: 0 ;
+	padding-left:10 ;
+	text-align: center;
+	
+	font: 50px "Garamond" , sans-serif;
+}
+
