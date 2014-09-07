@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -44,13 +43,6 @@
 
 </head>
 
-<title>Uploaded!</title>
-{% if filename %}
-  <div id="container" src="{{filename}}"></div>
-{% else %}
-  <h1>no image for whatever reason</h1>
-{% endif %}
-
 <body>
 
 
@@ -80,7 +72,14 @@ var options = {
 console.log('declared');
 get_token();
 alert(access_token);
-Moxtra.annotate(options);
-console.log('annotate');
+//Moxtra.annotate(options);
+//console.log('annotate');
 </script>
+
+<h1>Upload new File</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+         <input type=hidden name=token value=>
+    </form>
 </body>

@@ -14,25 +14,23 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
+    #a = requests.post("https://api.moxtra.com/oauth/token" +
+    #"client_id=hhmXl0qEFxM&" + 
+    #"client_secret=hQbxcqM20TQ&" + 
+    #"grant_type=http://www.moxtra.com/auth_uniqueid&" + 
+    #"uniqueid=UNIQUE-ID&" +
+    #"timestamp=time.time()&" +
+    #"signature=SIGNATURE")
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
-            #files = {'file': open(file.filename, 'r')}
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-            r = requests.post("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload", data=file.filename)
-            return redirect(url_for('uploaded_file', filename=file.filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
-    '''
+            return redirect(url_for('uploaded_file', filename=file.filename, access_token=token))
+    return render_template('first.html')
 
 @app.route('/show/<filename>')
-def uploaded_file(filename):
+def uploaded_file(filename, access_token):
+    r = requests.post("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1/pageupload?access_token=access_token", data=file.filename)
     filename = 'http://127.0.0.1:5000/uploads/' + filename
     return render_template('template.html', filename=filename)
 
