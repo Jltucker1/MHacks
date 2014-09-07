@@ -31,5 +31,12 @@ def uploaded_file(filename, access_token):
 def send_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
+@app.route('/view')
+def view_gallery():
+    r = requests.get("https://api.moxtra.com/BhsT7RE7i0aJYacX8Svwaf1")
+    return render_template('temp.html', r = r)
+    #pages = r.data.pages
+    #return render_template('index.html', pages = pages)
+
 if __name__ == '__main__':
     app.run(debug=True)

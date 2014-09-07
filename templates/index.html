@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-{% import urllib2 %}
 <head>
 
 <title>Scrapbook</title>
@@ -528,10 +527,9 @@ function fadeOutLoadingMessage(){
   <button id="rightButton" onclick='moveRight()'>&gt;</button>
   <div id="galleryContainer">
     <div id="gallery">
-      {% r = requests.get('/BhsT7RE7i0aJYacX8Svwaf1') %}
-      {% pages = r.data.total_pages %}
-      {% for i in xrange(pages): %}
-        <img src=pages[i].page_uri >
+      {% for page in pages %}
+        <img src=page.page_uri>
+      {% endfor %}
     </div>
     <div id="caption">Photo Caption</div>
     <div id="loading">Please wait...</div>
